@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Қазақстанның микробқа қарсы төзімділік атласы</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Segoe UI", Arial, sans-serif; background: #f0f2f5; padding: 20px; }
+    .container { max-width: 1300px; margin: 0 auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; margin-bottom: 20px; font-size: 28px; }
+    .controls { display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 20px; background: #f8f9fa; padding: 15px 20px; border-radius: 8px; align-items: center; }
+    .controls label { font-weight: 600; color: #2c3e50; margin-right: 5px; }
+    .controls select { padding: 8px 15px; font-size: 14px; border: 1px solid #ddd; border-radius: 6px; background: white; min-width: 200px; }
+    .controls select:hover { border-color: #3498db; }
+    .controls select:focus { outline: none; border-color: #3498db; box-shadow: 0 0 0 3px rgba(52,152,219,0.2); }
+    #map { height: 650px; border-radius: 8px; border: 1px solid #e9ecef; }
+    .legend { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; margin-top: 15px; padding: 12px; background: #f8f9fa; border-radius: 8px; }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #2c3e50; }
+    .legend-color { width: 18px; height: 18px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.1); }
+    .info { text-align: center; color: #6c757d; font-size: 13px; margin-top: 15px; padding-top: 10px; border-top: 1px solid #e9ecef; }
+    .stats { text-align: center; margin-top: 10px; color: #2c3e50; font-size: 14px; font-weight: 500; }
+    .lang-switch { margin-bottom: 15px; display: flex; gap: 10px; justify-content: center; }
+    .lang-switch a { text-decoration: none; padding: 8px 20px; border-radius: 6px; background: #3498db; color: white; font-weight: 600; transition: 0.3s; }
+    .lang-switch a:hover { background: #2980b9; }
+    .lang-switch a.active { background: #2c3e50; }
+    @media (max-width: 600px) { .controls { flex-direction: column; } }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="lang-switch">
+    <a href="index.html">English</a>
+    <a href="index_kz.html" class="active">Қазақша</a>
+  </div>
+
+  <h1>🧬 Қазақстанның микробқа қарсы төзімділік атласы</h1>
+  <div class="controls">
+    <div>
+      <label for="pathogenSelect">🦠 Микроорганизм:</label>
+      <select id="pathogenSelect">
+        <option value="Escherichia coli">Escherichia coli</option>
+        <option value="Klebsiella pneumoniae">Klebsiella pneumoniae</option>
+        <option value="Pseudomonas aeruginosa">Pseudomonas aeruginosa</option>
+        <option value="Acinetobacter baumannii">Acinetobacter baumannii</option>
+        <option value="Staphylococcus aureus">Staphylococcus aureus</option>
+        <option value="Enterococcus faecalis">Enterococcus faecalis</option>
+        <option value="Enterococcus faecium">Enterococcus faecium</option>
+        <option value="Proteus mirabilis">Proteus mirabilis</option>
+        <option value="Enterobacter cloacae">Enterobacter cloacae</option>
+        <option value="Streptococcus pneumoniae">Streptococcus pneumoniae</option>
+      </select>
+    </div>
+    <div>
+      <label for="antibioticSelect">💊 Антибиотик:</label>
+      <select id="antibioticSelect">
+        <option value="Amoxicillin">Amoxicillin</option>
+        <option value="Amox/K Clav">Amox/K Clav</option>
+        <option value="Ceftriaxone">Ceftriaxone</option>
+        <option value="Cefazolin">Cefazolin</option>
+        <option value="Ciprofloxacin">Ciprofloxacin</option>
+        <option value="Azithromycin">Azithromycin</option>
+        <option value="Levofloxacin">Levofloxacin</option>
+        <option value="Gentamicin">Gentamicin</option>
+        <option value="Doxycycline">Doxycycline</option>
+        <option value="Ampicillin">Ampicillin</option>
+      </select>
+    </div>
+  </div>
+  <div id="map"></div>
+  <div class="legend">
+    <div class="legend-item"><span class="legend-color" style="background: #2ecc71;"></span> Төмен (&lt;30%)</div>
+    <div class="legend-item"><span class="legend-color" style="background: #f39c12;"></span> Орташа (30-60%)</div>
+    <div class="legend-item"><span class="legend-color" style="background: #e74c3c;"></span> Жоғары (&gt;60%)</div>
+  </div>
+  <div class="stats" id="statsDisplay">Микроорганизм мен антибиотикті таңдаңыз</div>
+  <div class="info">Мәлімет алу үшін маркерлерді басыңыз • AMR атласы, Қазақстан</div>
+</div>
+
+<script>
+// AMR Data (same as English version)
+const allData = [
+  // Полные данные AMR (вставьте сюда те же данные, что в index.html)
+  // ... 
+];
+</script>
+</body>
+</html>
